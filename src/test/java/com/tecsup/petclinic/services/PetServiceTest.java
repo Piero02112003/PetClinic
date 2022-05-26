@@ -3,6 +3,7 @@ package com.tecsup.petclinic.services;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
 
@@ -34,14 +35,12 @@ public class PetServiceTest {
 		Pet pet = null;
 		
 		try {
-			
 			pet = petService.findById(ID);
-			
 		} catch (PetNotFoundException e) {
-			assertThat(e.getMessage(), false);
+			fail(e.getMessage());
 		}
+		
 		logger.info("" + pet);
-
 		assertThat(pet.getName(), is(NAME));
 
 	}
@@ -175,14 +174,13 @@ public class PetServiceTest {
 		try {
 			petService.delete(pet.getId());
 		} catch (PetNotFoundException e) {
-			assertThat(e.getMessage(), false);
+			fail(e.getMessage());
 		}
 			
 		try {
 			petService.findById(pet.getId());
-			assertThat(true, is(false));
+			fail("Pet id = " + pet.getId() + " has not delete");
 		} catch (PetNotFoundException e) {
-			assertThat(true, is(true));
 		} 				
 
 	}
