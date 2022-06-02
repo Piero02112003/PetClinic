@@ -40,8 +40,10 @@ public class PetControllerTest {
 
     private static final ObjectMapper om = new ObjectMapper();
     
-	@Autowired
+	@Autowired   
 	private MockMvc mockMvc;
+	
+	// TO DO
 	
 	@Test
 	public void testGetPets() throws Exception {
