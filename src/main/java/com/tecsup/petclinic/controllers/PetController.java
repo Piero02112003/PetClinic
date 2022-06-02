@@ -62,7 +62,7 @@ public class PetController {
 	@ResponseStatus(HttpStatus.CREATED)
 	Pet create(@RequestBody PetDTO newPet) {
 		Pet pet = new Pet();
-		//pet.setName(newPet.getName());
+		pet.setName(newPet.getName());
 		pet.setOwnerId(newPet.getOwnerId());
 		pet.setTypeId(newPet.getTypeId());
 		pet.setBirthDate(newPet.getBirthDate());
