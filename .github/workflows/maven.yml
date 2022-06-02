@@ -22,6 +22,6 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Test with Maven
       run: mvn test -P aws
       
