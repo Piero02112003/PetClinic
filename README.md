@@ -11,3 +11,8 @@
 ### - mvn test -P dev  --> aplication-dev.properties 
 ### - mvn test -P test --> aplication-test.properties
 ### - mvn test -P prod --> aplication-prod.properties
+
+## v4.0.0 --> Version with continuous integration - Amazon RDS - GithubAction
+
+### - mvn test -P aws --> aplication-aws.properties
+ 
