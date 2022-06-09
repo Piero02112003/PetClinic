@@ -120,7 +120,7 @@ public class PetControllerTest {
 	@Test
     public void testCreatePet() throws Exception {
 		
-    	String NAME_PET = "BeethovenY";
+    	String NAME_PET = "Beethoven";
 		int TYPE_ID = 1;
 		int OWNER_ID = 1;
 		String DATE_REF = "2021-10-03";
