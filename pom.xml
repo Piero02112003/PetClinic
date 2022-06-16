@@ -45,6 +45,8 @@
 	</dependencies>
  
 	<build>
+		<!-- define jar filename -->
+		<finalName>petclinic</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
