@@ -1,5 +1,7 @@
 package com.tecsup.petclinic.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,9 @@ import com.tecsup.petclinic.services.PetService;
  */
 @RestController
 public class PetController {
+
+	private static final Logger logger 
+		= LoggerFactory.getLogger(PetController.class);
 
 	@Autowired
 	private PetService service;
@@ -61,11 +66,15 @@ public class PetController {
 	@PostMapping("/pets")
 	@ResponseStatus(HttpStatus.CREATED)
 	Pet create(@RequestBody PetDTO newPet) {
+		
 		Pet pet = new Pet();
 		pet.setName(newPet.getName());
 		pet.setOwnerId(newPet.getOwnerId());
 		pet.setTypeId(newPet.getTypeId());
 		pet.setBirthDate(newPet.getBirthDate());
+		
+		logger.info("create:" +pet.toString());
+		
 		return service.create(pet);
 	}
 	
@@ -97,11 +106,15 @@ public class PetController {
 	@PutMapping("/pets/{id}")
 	Pet saveOrUpdate(@RequestBody PetDTO newPet, @PathVariable Long id) {
 		Pet pet = null;
+
+		logger.info("saveOrUpdate:" + newPet.toString());
+
 		try {
 			pet = service.findById(id);
 			pet.setName(newPet.getName());
 			pet.setOwnerId(newPet.getOwnerId());
 			pet.setTypeId(newPet.getTypeId());
+			pet.setBirthDate(newPet.getBirthDate());
 			service.update(pet);
 		} catch (PetNotFoundException e) {
 			pet = service.create(pet);
