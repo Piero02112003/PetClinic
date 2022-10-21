@@ -40,7 +40,7 @@ public class PetServiceTest {
 			fail(e.getMessage());
 		}
 		
-		logger.info("" + pet);
+		logger.info("->" + pet);
 		assertThat(pet.getName(), is(NAME));
 
 	}
