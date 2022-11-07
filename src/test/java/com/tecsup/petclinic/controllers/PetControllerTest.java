@@ -44,7 +44,7 @@ public class PetControllerTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	public void testGetPets() throws Exception {
+	public void testFindAllPets() throws Exception {
 
 		//int SIZE = 216;
 		int ID_FIRST = 1;
